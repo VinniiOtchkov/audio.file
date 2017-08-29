@@ -1,29 +1,34 @@
-<v-list id="listy" v-if="show">
+<template>
+<div class="post-input">
 
-  <form v-on:submit.prevent class="form-control">
+  <v-list id="listy" v-if="show">
 
-    <v-text-field name="input-1" label="Artist Name" id="testing" v-model="newPost.artistName" />
+    <form v-on:submit.prevent class="form-control">
 
-    <v-text-field name="input-2" label="Song Name" id="testing" v-model="newPost.title" />
+      <v-text-field name="input-1" label="Artist Name" id="testing" v-model="newPost.artistName" />
 
-    <v-text-field name="input-3" label="Sample URL" id="testing" v-model="newPost.url" />
+      <v-text-field name="input-2" label="Song Name" id="testing" v-model="newPost.title" />
 
-    <v-text-field name="input-4" label="Description" id="testing" v-model="newPost.description" />
+      <v-text-field name="input-3" label="Sample URL" id="testing" v-model="newPost.url" />
 
-  </form v-on:submit="addBook">
+      <v-text-field name="input-4" label="Description" id="testing" v-model="newPost.description" />
 
-</v-list>
+    </form v-on:submit="addBook">
+
+  </v-list>
+</div>
+</template>
 
 <script>
 export default {
   name: 'post-input',
   data() {
     return {
-      newPost:{
-        artistName:'',
-        title:'',
-        url:'',
-        description:''
+      newPost: {
+        artistName: '',
+        title: '',
+        url: '',
+        description: ''
       },
       show: false
     }
