@@ -1,14 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-
 Vue.use(Vuex);
 
-
-export const store = new Vuex.Store({state: {
-  car:[
-    {
-      name:'toyota'
-    }
-  ]
-}, mutations: {}, actions: {}});
+  export const store = new Vuex.Store({
+    state: {
+      posts: []
+    },
+    mutations: {},
+    actions: {}
+  });
