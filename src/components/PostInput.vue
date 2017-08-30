@@ -1,9 +1,10 @@
 <template>
+
 <div class="post-input">
 
-  <v-list id="listy" v-if="show">
+  <v-list id="inputty">
 
-    <form v-on:submit.prevent class="form-control">
+    <form v-on:submit="addPost" class="form-control">
 
       <v-text-field name="input-1" label="Artist Name" id="testing" v-model="newPost.artistName" />
 
@@ -13,7 +14,7 @@
 
       <v-text-field name="input-4" label="Description" id="testing" v-model="newPost.description" />
 
-    </form v-on:submit="addBook">
+    </form>
 
   </v-list>
 </div>
@@ -29,8 +30,7 @@ export default {
         title: '',
         url: '',
         description: ''
-      },
-      show: false
+      }
     }
   },
   methods: {

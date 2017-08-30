@@ -1,5 +1,5 @@
 <template>
-<div class="Header">
+<div class="top">
 
   <v-toolbar fixed>
     <v-btn icon href="/">
@@ -17,9 +17,10 @@
 
 <script>
 export default {
-  name: 'header',
+  name: 'top',
   data() {
     return {
+      title:'audio.file'
     }
   },
   methods: {

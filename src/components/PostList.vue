@@ -1,30 +1,22 @@
 <template>
-<v-carousel v-if="show2" interval=6000000>
-
-  <Post v-for="post in posts" :post="post">
-
-
-  </Post>
-</v-carousel>
+  <v-carousel interval=6000000>
+    <Post v-for="posts in posts" :posts="posts" />
+  </v-carousel>
 </template>
 
 
 <script>
-console.log('thisshit', this)
 import Post from './Post.vue';
+
+console.log('LOOK AT ME', this);
 
 export default {
   name: 'post-list',
-  props: ['posts'],
   components: {
     Post
   },
   data() {
-    console.log("LOL", this);
-
-    return {
-      something: ''
-    }
+    return {}
   },
 
   computed: {
@@ -35,6 +27,3 @@ export default {
 
 }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
