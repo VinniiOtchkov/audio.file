@@ -11,6 +11,10 @@ body {
   opacity: 0.95;
 }
 
+.carousel__controls{
+display:none;
+}
+
 
 #card {
   background-color: transparent;
@@ -32,6 +36,19 @@ body {
 
 .btn.btn--icon .btn__content .icon {
   color: black;
+}
+
+.carousel{
+position:static;
+background-color:white;
+height:320px;
+width:1500px;
+}
+
+.carousel__left, .carousel__right{
+position: absolute;
+z-index: 1;
+transform: translateY(0%);
 }
 
 .carousel__controls {
