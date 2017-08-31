@@ -25,9 +25,9 @@ export const store = new Vuex.Store({
 
     deletePost(state, payload){
       console.log('MUTATION PAYLOAD',payload)
-
+      state.posts = state.posts.filter(sample => sample.sample_id != payload.sample_id)
       axios.delete(`http://localhost:8000/posts/${payload.id}`)
-      .then(res => console.log('res',res))
+      .then(res => state = res.data)
     }
   },
   actions: {

@@ -14,6 +14,7 @@
         </div>
       </v-card-title>
       <v-card-actions>
+        <center id="buttons">
 
         <v-btn icon @click="showComments = !showComments">
             <v-icon>comment</v-icon>
@@ -23,9 +24,12 @@
           <v-icon>play_circle_filled</v-icon>
         </v-btn icon>
 
-        <v-btn icon @click="deletePost">
+        <v-btn icon @click="deletePost(post)">
           <v-icon>delete</v-icon>
         </v-btn>
+
+      </center>
+
 
       </v-card-actions>
     </v-card>
@@ -43,7 +47,7 @@
       </v-card-title>
       <v-card-actions>
 
-        <v-btn icon @click="favoriteIt" v-if="!favorited">
+        <v-btn icon @click="favorited=!favorited" v-if="!favorited">
           <v-icon>favorite_border</v-icon>
         </v-btn>
 
@@ -74,8 +78,9 @@ export default {
   },
 
   methods: {
-    deletePost(){
-      this.$store.dispatch('deletePost',this.post)
+    deletePost(post){
+      console.log('THIS.POST',post)
+      this.$store.dispatch('deletePost',post)
     }
 },
 
