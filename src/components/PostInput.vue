@@ -1,20 +1,18 @@
 <template>
 
-<div class="post-input">
+<div class="post-input" v-if="show">
 
   <v-list id="inputty">
 
-    <form v-on:submit="addPost" class="form-control">
+      <v-text-field v-model="artist_name" label="Artist Name" id="testing" />
 
-      <v-text-field name="input-1" label="Artist Name" id="testing" v-model="newPost.artistName" />
+      <v-text-field v-model="title" label="Song Title" id="testing" />
 
-      <v-text-field name="input-2" label="Song Name" id="testing" v-model="newPost.title" />
+      <v-text-field v-model="url" label="Description" id="testing"/>
 
-      <v-text-field name="input-3" label="Sample URL" id="testing" v-model="newPost.url" />
+      <v-text-field v-model="description" label="Sample URL/Embed" id="testing"/>
 
-      <v-text-field name="input-4" label="Description" id="testing" v-model="newPost.description" />
-
-    </form>
+      <btn @click="addPost" class="btn">submit</btn>
 
   </v-list>
 </div>
@@ -25,18 +23,22 @@ export default {
   name: 'post-input',
   data() {
     return {
-      newPost: {
-        artistName: '',
+        artist_name: '',
         title: '',
         url: '',
-        description: ''
-      }
+        description: '',
+        show:true
     }
   },
   methods: {
     addPost() {
-      this.$emit('addPost', this.newPost)
-    },
+      this.show=!this.show
+      this.$store.dispatch('addPost', [this.artist_name,this.title,this.url,this.description])
+      this.artist_name='',
+      this.title='',
+      this.url='',
+      this.description=''
+    }
   }
 }
 </script>

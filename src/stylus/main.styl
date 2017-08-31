@@ -15,12 +15,25 @@ body {
 display:none;
 }
 
+#delete{
+float:right;
+}
+
 
 #card {
   background-color: transparent;
   overflow-y: scroll;
-  height: 200px;
+  height: auto;
   width: 300px;
+}
+
+#card2 {
+  background-color: transparent;
+  overflow-y: scroll;
+  display:inline-block;
+
+  height: 200px;
+  width: 200px;
 }
 
 .input-group__details:after {
@@ -38,11 +51,12 @@ display:none;
   color: black;
 }
 
-.carousel{
-position:static;
-background-color:white;
-height:320px;
-width:1500px;
+.carousel {
+background-color: #fff;
+position: absolute;
+bottom: 0;
+left: 0;
+height: 33%;
 }
 
 .carousel__left, .carousel__right{
@@ -53,11 +67,21 @@ transform: translateY(0%);
 
 .carousel__controls {
   background-color: white;
+
+}
+
+#linky{
+text-decoration: none;
+color:black;
+}
+
+imagey{
+height:100px;
+width:100px;
 }
 
 
 #inputty {
-  height: 200px;
   width: 300px;
   background-color: transparent;
   float: left;

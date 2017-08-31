@@ -1,5 +1,6 @@
 <template>
 <v-app>
+  <router-view></router-view>
   <top></top>
 
   <br><br><br>
@@ -21,6 +22,7 @@
         <br />
         <br />
         <br />
+
 
         <div v-if="show2">
           <post-list />
@@ -56,11 +58,15 @@ export default {
       miniVariant: false,
       right: true,
       title: 'audio.file',
-      show: false,
-      show2: false,
-      hovered: false
+      hovered: false,
+      show2: false
     }
-  }
+  },
+  computed: {
+    show() {
+      return this.$store.state.show
+    }
+}
 }
 </script>
 

@@ -4,7 +4,7 @@
 
 <div v-if="!switched">
   <v-bottom-nav fixed value="true" class="white">
-  <v-btn flat dark class="black--text" v-on:click="switched = !switched">
+  <v-btn flat dark class="black--text" v-on:click="this.show = !this.show">
     <span>Add Sample</span>
     <v-icon>add</v-icon>
   </v-btn>
@@ -34,5 +34,10 @@ export default {
       switched:false
     }
   },
+  computed:{
+    show() {
+      return this.$store.state.show
+    }
+  }
 }
 </script>

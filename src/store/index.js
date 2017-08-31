@@ -1,12 +1,46 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex);
 
-  export const store = new Vuex.Store({
-    state: {
-      posts: []
+
+export const store = new Vuex.Store({
+  state: {
+    posts: [],
+    show: false
+  },
+  mutations: {
+    addPost(state, [artist_name, title, url, description]) {
+      axios.post(`http://localhost:8000/posts`, {
+        artist_name: artist_name,
+        title: title,
+        description: description,
+        url: url
+      }).then(res => state.posts = res.data)
     },
-    mutations: {},
-    actions: {}
-  });
+    showInput(state){
+      state.show = !state.show
+    },
+
+    deletePost(state, payload){
+      console.log('MUTATION PAYLOAD',payload)
+
+      axios.delete(`http://localhost:8000/posts/${payload.id}`)
+      .then(res => console.log('res',res))
+    }
+  },
+  actions: {
+    addPost(context, [artist_name, title, url, description]) {
+      context.commit('addPost',[artist_name, title, url, description])
+    },
+    deletePost(context, payload){
+      console.log('ACTION PAYLOAD',payload)
+      context.commit('deletePost',payload)
+    },
+
+    showInput(context){
+      context.commit('showInput')
+    }
+  }
+});
