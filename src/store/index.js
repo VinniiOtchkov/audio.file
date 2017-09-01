@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     posts: [],
-    show: false
+    show: false,
+    show2:false
   },
   mutations: {
     addPost(state, [artist_name, title, url, description]) {
@@ -31,6 +32,9 @@ export const store = new Vuex.Store({
 
     showInput(state){
       state.show = !state.show
+    },
+    showInput2(state){
+      state.show2 = !state.show2
     },
 
     likeComment(state, payload){
@@ -60,6 +64,9 @@ export const store = new Vuex.Store({
 
     showInput(context){
       context.commit('showInput')
+    },
+    showInput2(context){
+      context.commit('showInput2')
     }
   }
 });

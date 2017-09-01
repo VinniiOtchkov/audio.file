@@ -4,7 +4,7 @@
 
 <div v-if="!switched">
   <v-bottom-nav fixed value="true" class="white">
-  <v-btn flat dark class="black--text" v-on:click="this.show = !this.show">
+  <v-btn flat dark class="black--text" @click="toggleInput">
     <span>Add Sample</span>
     <v-icon>add</v-icon>
   </v-btn>
@@ -13,9 +13,9 @@
 
 <div v-else>
 <v-bottom-nav fixed value="true" class="white">
-<v-btn flat dark class="black--text" v-on:click="switched = !switched" type="submit">
-  <span>Submit Sample</span>
-  <v-icon>check</v-icon>
+<v-btn flat dark class="black--text" @click="toggleInput">
+  <span>Cancel</span>
+  <v-icon>close</v-icon>
 </v-btn>
 
 </v-bottom-nav>
@@ -35,9 +35,13 @@ export default {
     }
   },
   computed:{
-    show() {
-      return this.$store.state.show
+
+  },
+    methods:{
+      toggleInput(){
+        this.switched = !this.switched
+        this.$store.dispatch('showInput')
+      }
     }
-  }
 }
 </script>

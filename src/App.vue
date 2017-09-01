@@ -15,10 +15,10 @@
           <span v-if="hovered">friendly sampling competition</span>
         </v-slide-y-transition>
 
-        <div v-if="show">
+        <div v-if="this.show">
           <post-input />
         </div>
-        <div v-else>
+        <div v-if="showCommentInput">
           <comment-input />
         </div>
 
@@ -49,7 +49,7 @@ import Bottom from './components/Bottom.vue';
 
 export default {
   name: 'app',
-  props:['state'],
+  props:['show','show2'],
   components: {
     Top,
     PostInput,
@@ -69,8 +69,11 @@ export default {
     }
   },
   computed: {
-    state() {
-      return this.$store.state
+    show() {
+      return this.$store.state.show
+    },
+    showCommentInput() {
+      return this.$store.state.show2
     }
 }
 }

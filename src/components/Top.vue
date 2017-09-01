@@ -2,7 +2,7 @@
 <div class="top">
 
   <v-toolbar fixed>
-    <v-btn icon href="/">
+    <v-btn icon href="/home">
       <v-icon>home</v-icon>
     </v-btn>
 

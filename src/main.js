@@ -8,7 +8,7 @@ import axios from 'axios';
 Vue.use(Vuetify);
 Vue.use(VueRouter);
 
-const routes =[{path:'/edit',component:App}];
+const routes =[{path:'/home',component:App}];
 
 const router = new VueRouter({
   routes
