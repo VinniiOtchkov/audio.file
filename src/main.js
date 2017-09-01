@@ -19,8 +19,9 @@ new Vue({
   store,
   router,
   mounted() {
-    axios.get(`http://localhost:8000`).then(res =>
+    axios.get(`http://localhost:8000`).then(res =>{
+      console.log('HERE',res)
       this.$store.state.posts = res.data
-    )},
+    })},
       render: h => h(App)
 });

@@ -18,6 +18,9 @@
         <div v-if="show">
           <post-input />
         </div>
+        <div v-else>
+          <comment-input />
+        </div>
 
         <br />
         <br />
@@ -40,14 +43,17 @@
 <script>
 import Top from './components/Top.vue';
 import PostInput from './components/PostInput.vue';
+import CommentInput from './components/CommentInput.vue';
 import PostList from './components/PostList.vue';
 import Bottom from './components/Bottom.vue';
 
 export default {
   name: 'app',
+  props:['state'],
   components: {
     Top,
     PostInput,
+    CommentInput,
     PostList,
     Bottom
   },
@@ -63,8 +69,8 @@ export default {
     }
   },
   computed: {
-    show() {
-      return this.$store.state.show
+    state() {
+      return this.$store.state
     }
 }
 }

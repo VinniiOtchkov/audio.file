@@ -2,15 +2,14 @@
 <v-carousel :interval=6000000>
 
   <v-carousel-item v-for="post in posts" src="/">
-    <v-card id="card">
+    <v-card id="card" style="height:200px;">
       <v-card-media>
-      <img id="imagey" />
       </v-card-media>
       <v-card-title primary-title>
         <div>
-          <h3 class="headline mb-0">{{post.sample_artist}}</h3>
-          <h4 class="headline mb-0">{{post.sample_title}}</h4>
-          <div>{{post.sample_description}}</div>
+          <h3 class="headline mb-0">{{post.artist_name}}</h3>
+          <h4 class="headline mb-0">{{post.title}}</h4>
+          <div>{{post.description}}</div>
         </div>
       </v-card-title>
       <v-card-actions>
@@ -20,7 +19,7 @@
             <v-icon>comment</v-icon>
         </v-btn>
 
-        <v-btn icon :href="post.sample_url">
+        <v-btn target="blank" icon :href="post.url">
           <v-icon>play_circle_filled</v-icon>
         </v-btn icon>
 
@@ -29,12 +28,10 @@
         </v-btn>
 
       </center>
-
-
       </v-card-actions>
     </v-card>
 
-    <v-card id="card2" v-for="comment in posts" v-if="showComments" style="height:200px;">
+    <v-card id="card2" v-for="comment in post.comments" v-if="showComments" style="height:200px;">
       <v-card-media v-if="comment.sample_id == post.id">
         {{comment.beat_url}}
       </v-card-media>
@@ -47,7 +44,7 @@
       </v-card-title>
       <v-card-actions>
 
-        <v-btn icon @click="favorited=!favorited" v-if="!favorited">
+        <v-btn icon @click="likeComment(comment)" v-if="!favorited">
           <v-icon>favorite_border</v-icon>
         </v-btn>
 
@@ -55,6 +52,10 @@
           <v-icon>favorite</v-icon>
         </v-btn>
         <span>{{comment.vote_count}}</span>
+
+        <v-btn icon id="commentPlay">
+          <v-icon>play_arrow</v-icon>
+        </v-btn>
       </v-card-actions>
     </v-card>
 
@@ -65,7 +66,6 @@
 
 
 <script>
-console.log('LOOK AT ME', this);
 
 export default {
   name: 'post-list',
@@ -81,11 +81,18 @@ export default {
     deletePost(post){
       console.log('THIS.POST',post)
       this.$store.dispatch('deletePost',post)
+    },
+
+    likeComment(comment){
+      console.log('COMMENT',comment)
+      this.favorited = !this.favorited
+      this.$store.dispatch('likeComment',comment)
     }
 },
 
   computed: {
     posts() {
+      console.log('LOL',this.$store.state)
       return this.$store.state.posts
     }
   }

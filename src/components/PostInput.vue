@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     addPost() {
-      this.show=!this.show
+      this.show = !this.show
       this.$store.dispatch('addPost', [this.artist_name,this.title,this.url,this.description])
       this.artist_name='',
       this.title='',
