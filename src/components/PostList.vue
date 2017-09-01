@@ -56,7 +56,7 @@
         </v-btn>
         <span>{{comment.vote_count}}</span>
 
-        <v-btn icon id="commentPlay" :href="comment.beat_url">
+        <v-btn icon id="commentPlay" target="blank" :href="comment.beat_url">
           <v-icon>play_arrow</v-icon>
         </v-btn>
       </v-card-actions>

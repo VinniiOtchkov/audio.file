@@ -21,14 +21,14 @@ export const store = new Vuex.Store({
       }).then(res => state.posts = res.data)
     },
 
-    // addComment(state, [artist_name, title, url, description]) {
-    //   axios.post(`http://localhost:8000/posts`, {
-    //     artist_name: artist_name,
-    //     title: title,
-    //     description: description,
-    //     url: url
-    //   }).then(res => state.posts = res.data)
-    // },
+    addComment(state, [producer_name, beat_title, beat_url, beat_description]) {
+      axios.post(`http://localhost:8000/comments`, {
+        producer_name: producer_name,
+        beat_title: beat_title,
+        beat_description: beat_description,
+        beat_url: beat_url
+      }).then(res => state.posts = res.data)
+    },
 
     showInput(state){
       state.show = !state.show
@@ -52,6 +52,9 @@ export const store = new Vuex.Store({
   actions: {
     addPost(context, [artist_name, title, url, description]) {
       context.commit('addPost',[artist_name, title, url, description])
+    },
+    addComment(context, [producer_name, beat_title, beat_url, beat_description]) {
+      context.commit('addComment',[producer_name, beat_title, beat_url, beat_description])
     },
     deletePost(context, payload){
       console.log('ACTION PAYLOAD',payload)

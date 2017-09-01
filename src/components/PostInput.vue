@@ -41,7 +41,6 @@
       <v-btn @click="addPost" icon id="forwardArrow">
         <v-icon v-if="forwardArrowFour">check</v-icon>
       </v-btn>
-
   </v-list>
 </div>
 </template>

@@ -20,7 +20,7 @@
       <v-icon v-if="forwardArrowTwo">arrow_forward</v-icon>
     </v-btn>
 
-    <v-text-field v-if="three" v-model="beat_url" label="Description" id="three" />
+    <v-text-field v-if="three" v-model="beat_description" label="Description" id="three" />
 
     <v-btn icon id="backArrow" @click="backToTwo">
       <v-icon v-if="backArrowThree">arrow_back</v-icon>
@@ -30,13 +30,13 @@
       <v-icon v-if="forwardArrowThree">arrow_forward</v-icon>
     </v-btn>
 
-    <v-text-field v-if="four" v-model="beat_description" label="Beat URL/Embed" id="four" />
+    <v-text-field v-if="four" v-model="beat_url" label="Beat URL/Embed" id="four" />
 
     <v-btn icon id="backArrow" @click="backToThree">
       <v-icon v-if="backArrowFour">arrow_back</v-icon>
     </v-btn>
 
-    <v-btn icon id="forwardArrow">
+    <v-btn icon @click="addComment" id="forwardArrow">
       <v-icon v-if="forwardArrowFour">check</v-icon>
     </v-btn>
 
@@ -70,11 +70,13 @@ export default {
   methods: {
     addComment() {
       this.four = false
-      this.$store.dispatch('addPost', [this.artist_name, this.title, this.url, this.description])
-      this.artist_name = '',
-        this.title = '',
-        this.url = '',
-        this.description = ''
+      this.forwardArrowFour = false
+      this. backArrowFour = false
+      this.$store.dispatch('addPost', [this.producer_name, this.beat_title, this.beat_url, this.beat_description])
+      this.producer_name = '',
+        this.beat_title = '',
+        this.beat_url = '',
+        this.beat_description = ''
     },
     changeOne() {
       this.one = false
@@ -82,7 +84,6 @@ export default {
       this.two = true
       this.forwardArrowTwo = true
       this.backArrowTwo=true
-
     },
     changeTwo() {
       this.two = false
