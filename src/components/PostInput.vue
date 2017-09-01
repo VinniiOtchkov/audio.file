@@ -34,6 +34,10 @@
 
       <v-text-field v-if="four" id="four" v-model="description" label="Sample URL/Embed"/>
 
+      <v-btn icon id="backArrow" @click="backToThree">
+        <v-icon v-if="backArrowFour">arrow_back</v-icon>
+      </v-btn>
+
       <v-btn @click="addPost" icon id="forwardArrow">
         <v-icon v-if="forwardArrowFour">check</v-icon>
       </v-btn>

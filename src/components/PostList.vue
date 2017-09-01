@@ -16,9 +16,13 @@
           <v-btn icon @click="showComments = !showComments">
             <v-icon>comment</v-icon>
           </v-btn>
-          
-          <v-btn icon @click="toggleInput" id="showCommentInputty">
-            <v-icon>add</v-icon>
+
+          <v-btn v-if="!inputOn" icon @click="toggleInput" id="showCommentInputty">
+            <v-icon>add_circle</v-icon>
+          </v-btn>
+
+          <v-btn v-else icon @click="toggleInput" id="showCommentInputty">
+            <v-icon>cancel</v-icon>
           </v-btn>
 
           <v-btn target="blank" icon :href="post.url">
@@ -52,7 +56,7 @@
         </v-btn>
         <span>{{comment.vote_count}}</span>
 
-        <v-btn icon id="commentPlay">
+        <v-btn icon id="commentPlay" :href="comment.beat_url">
           <v-icon>play_arrow</v-icon>
         </v-btn>
       </v-card-actions>
@@ -71,7 +75,8 @@ export default {
   data() {
     return {
       showComments: false,
-      favorited: false
+      favorited: false,
+      inputOn:false
     }
   },
 
@@ -87,6 +92,7 @@ export default {
       this.$store.dispatch('likeComment', comment)
     },
     toggleInput() {
+      this.inputOn = !this.inputOn
       this.$store.dispatch('showInput2')
     }
   },
