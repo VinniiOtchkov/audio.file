@@ -17,6 +17,7 @@ display:none;
 
 #showCommentInny{
 float:right;
+font-size: 2px;
 }
 
 #delete {
@@ -26,10 +27,17 @@ float:right;
 
 #card {
   background-color: transparent;
-  overflow-y: scroll;
+  overflow: auto;
   height: 200px !important;
   width: 300px;
   margin: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+#card:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
 
 }
 
@@ -41,6 +49,13 @@ float:right;
   height: 200px;
   width: 200px;
   margin: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+#card2:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
 
 }
 
@@ -89,7 +104,7 @@ color:black;
 }
 
 #buttons{
-  padding-left: 60px;
+  padding-left: 30px;
   margin-bottom: 20px;
 }
 

@@ -5,9 +5,6 @@
     <v-card id="card" style="height:200px;">
       <v-card-title primary-title>
         <div>
-          <v-btn icon @click="toggleInput" id="showCommentInputty">
-            <v-icon>add</v-icon>
-          </v-btn>
           <h3 class="headline mb-0">{{post.artist_name}}</h3>
           <h4 class="headline mb-0">{{post.title}}</h4>
           <div>{{post.description}}</div>
@@ -18,6 +15,10 @@
 
           <v-btn icon @click="showComments = !showComments">
             <v-icon>comment</v-icon>
+          </v-btn>
+          
+          <v-btn icon @click="toggleInput" id="showCommentInputty">
+            <v-icon>add</v-icon>
           </v-btn>
 
           <v-btn target="blank" icon :href="post.url">
