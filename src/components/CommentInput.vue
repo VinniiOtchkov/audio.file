@@ -3,6 +3,9 @@
 
   <v-list id="inputty">
 
+    <input type="hidden" v-model="post_id" id="zero">
+  </input>
+
     <v-text-field v-model="producer_name" placeholder="Producer Name" id="one" v-if="one">
     </v-text-field>
 
@@ -49,6 +52,7 @@ export default {
   name: 'comment-input',
   data() {
     return {
+      post_id:1,
       producer_name: '',
       beat_title: '',
       beat_url: '',
@@ -73,7 +77,8 @@ export default {
       this.forwardArrowFour = false
       this. backArrowFour = false
 
-      this.$store.dispatch('addComment', [this.producer_name, this.beat_title, this.beat_url, this.beat_description])
+      this.$store.dispatch('addComment', [this.post_id,this.producer_name, this.beat_title, this.beat_url, this.beat_description])
+      this.post_id=1,
       this.producer_name = '',
         this.beat_title = '',
         this.beat_url = '',

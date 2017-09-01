@@ -21,8 +21,9 @@ export const store = new Vuex.Store({
       }).then(res => state.posts = res.data)
     },
 
-    addComment(state, [producer_name, beat_title, beat_url, beat_description]) {
+    addComment(state, [post_id,producer_name, beat_title, beat_url, beat_description]) {
       axios.post(`http://localhost:8000/comments`, {
+        post_id:post_id,
         producer_name: producer_name,
         beat_title: beat_title,
         beat_description: beat_description,
@@ -53,8 +54,8 @@ export const store = new Vuex.Store({
     addPost(context, [artist_name, title, url, description]) {
       context.commit('addPost',[artist_name, title, url, description])
     },
-    addComment(context, [producer_name, beat_title, beat_url, beat_description]) {
-      context.commit('addComment',[producer_name, beat_title, beat_url, beat_description])
+    addComment(context, [post_id,producer_name, beat_title, beat_url, beat_description]) {
+      context.commit('addComment',[post_id,producer_name, beat_title, beat_url, beat_description])
     },
     deletePost(context, payload){
       console.log('ACTION PAYLOAD',payload)
