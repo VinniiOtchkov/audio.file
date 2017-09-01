@@ -22,7 +22,7 @@
       </v-btn>
 
 
-      <v-text-field v-if="three" v-model="url" label="Description" id="three"/>
+      <v-text-field v-if="three" v-model="description" label="Description" id="three"/>
 
       <v-btn icon id="backArrow" @click="backToTwo">
         <v-icon v-if="backArrowThree">arrow_back</v-icon>
@@ -32,7 +32,7 @@
         <v-icon v-if="forwardArrowThree">arrow_forward</v-icon>
       </v-btn>
 
-      <v-text-field v-if="four" id="four" v-model="description" label="Sample URL/Embed"/>
+      <v-text-field v-if="four" id="four" v-model="url" label="Sample URL/Embed"/>
 
       <v-btn icon id="backArrow" @click="backToThree">
         <v-icon v-if="backArrowFour">arrow_back</v-icon>

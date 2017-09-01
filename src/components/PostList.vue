@@ -76,7 +76,7 @@ export default {
     return {
       showComments: false,
       favorited: false,
-      inputOn:false
+      inputOn: false
     }
   },
 

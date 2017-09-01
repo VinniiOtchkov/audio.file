@@ -72,7 +72,8 @@ export default {
       this.four = false
       this.forwardArrowFour = false
       this. backArrowFour = false
-      this.$store.dispatch('addPost', [this.producer_name, this.beat_title, this.beat_url, this.beat_description])
+
+      this.$store.dispatch('addComment', [this.producer_name, this.beat_title, this.beat_url, this.beat_description])
       this.producer_name = '',
         this.beat_title = '',
         this.beat_url = '',
