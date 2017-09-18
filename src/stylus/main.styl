@@ -1,2 +1,137 @@
 /** Stylus Styles */
 @import '../../node_modules/vuetify/src/stylus/main'
+
+body {
+  font-family: 'Poiret One', cursive;
+}
+
+#icon {
+  max-height: 200px;
+  max-width: 200px;
+  opacity: 0.95;
+}
+
+.carousel__controls{
+display:none;
+}
+
+#zero {
+display:none;
+height:0px;
+width:0px;
+}
+
+#showCommentInny{
+float:right;
+font-size: 2px;
+}
+
+#delete {
+float:right;
+}
+
+
+#card {
+  background-color: transparent;
+  overflow: auto;
+  height: 200px !important;
+  width: 300px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+#card:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+
+}
+
+#card2 {
+  background-color: transparent;
+  overflow-y: scroll;
+  display:inline-block;
+
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+#card2:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+
+}
+
+.input-group__details:after {
+  background-color: black;
+  color: black;
+}
+
+.input-group--text-field input,
+.input-group--text-field textarea {
+  caret-color: black;
+  color: black;
+}
+
+.btn.btn--icon .btn__content .icon {
+  color: black;
+}
+
+.carousel {
+  background-color: #fff;
+      position: fixed;
+      bottom: 55px;
+      left: 0;
+      height: 33%;
+}
+
+.carousel__left, .carousel__right{
+position: absolute;
+z-index: 1;
+transform: translateY(0%);
+}
+
+.carousel__controls {
+  background-color: white;
+
+}
+
+
+#commentPlay{
+  margin-left: 80px;
+}
+
+#linky{
+text-decoration: none;
+color:black;
+}
+
+#buttons{
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+#one{
+  margin-top: 51px;
+}
+
+#forwardArrow {
+  float: right;
+  transform: translateY(-100%);
+
+}
+
+#backArrow{
+  float: left;
+  transform: translateY(-100%);
+}
+
+
+#inputty {
+  background-color: transparent;
+  height: 0px;
+  width:400px;
+}
